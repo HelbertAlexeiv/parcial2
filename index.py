@@ -1,5 +1,5 @@
 from tkinter import *
-
+from random import randint
 root = Tk()
 filaExterior = 0
 columnaExterior= 0
@@ -14,9 +14,13 @@ def generarFila(fila, columna):
     columna = columna
     fila = fila
     color = "green"
+    numeroAleatorio = randint(1, 5)
     for i in range(int(ordenEntry.get())):
-        Canvas(matrizFrame, width=100, height=100, bg=color).grid(row=fila, column=columna)
-        Label(matrizFrame, text="2").grid(row=fila, column=columna)
+        if int(buscarEntry.get()) == randint(1, 5):
+            Canvas(matrizFrame, width=100, height=100, bg="red").grid(row=fila, column=columna)
+        else:
+            Canvas(matrizFrame, width=100, height=100, bg=color).grid(row=fila, column=columna)
+        Label(matrizFrame, text=numeroAleatorio).grid(row=fila, column=columna)
         columna += 1
 
 #funcion
